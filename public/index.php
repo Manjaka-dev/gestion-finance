@@ -1,4 +1,5 @@
 <?php
+define('BASE_URL','/ETU003133/t/20250110/public');
 
 /*
  * FlightPHP Framework
