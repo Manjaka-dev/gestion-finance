@@ -34,5 +34,10 @@ use Flight;
                 Flight::redirect('/employe');
             }
         }
+
+        public function logout() {
+            session_destroy();
+            Flight::redirect('/employe');
+        }
     }
     

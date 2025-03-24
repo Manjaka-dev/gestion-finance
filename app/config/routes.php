@@ -17,5 +17,5 @@ $router->group('/employe', function() use ($router, $app) {
 	$router->get('/', [ $Employe_Controller, 'getFormulaireLogin']);
 	$router->post('/doLogin', [ $Employe_Controller, 'login' ]);
 	$router->get('/accueil', [ $Employe_Controller, 'getAccueil']);
-
+	$router->get('/logout', [ $Employe_Controller, 'logout' ]);
 });
