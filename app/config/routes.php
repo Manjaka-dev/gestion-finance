@@ -22,3 +22,13 @@ $router->group('/api', function() use ($router, $app) {
 	$router->get('/users/@id:[0-9]', [ $Api_Example_Controller, 'getUser' ]);
 	$router->post('/users/@id:[0-9]', [ $Api_Example_Controller, 'updateUser' ]);
 });
+
+$router->group('/employe', function() use ($router, $app) {
+	$Employe_Controller = new EmployeController();
+	$router->get('/login', [ $Employe_Controller, 'getFormulaireLogin']);
+	$router->post('/login', [ $Employe_Controller, 'login' ]);
+});
+
+$router->get('/loginEmp', function() use ($app) {
+	$app->render('loginEmp');
+});
