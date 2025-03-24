@@ -120,18 +120,15 @@ use PDO;
             return $row ? new Departement($row['id_dept'], $row['nom_dept']) : null;
         }
 
-        public static function login($nom,$prenom,$mdp,$departement) {
+        public static function login($nom,$prenom,$mdp) {
             $db = Flight::db();
             $stmt = $db->prepare("SELECT * FROM Employer WHERE nom_emp = ? AND prenom_emp = ? AND mot_de_passe = ?");
             $stmt->execute([$nom,$prenom,$mdp]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
-
             if ($row) {
                 $employe = new Employe($row['id_emp'], $row['nom_emp'], $row['prenom_emp'], $row['date_naissance']);
-                if ($employe->getDepartementByDate(date('Y-m-d'))->getId() == $departement) {
-                    return true;
-                }
+                return $employe;
             }
             return false;
         }
