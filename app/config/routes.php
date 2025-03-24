@@ -1,6 +1,5 @@
 <?php
 
-use app\controllers\ApiExampleController;
 use flight\Engine;
 use flight\net\Router;
 use app\controllers\EmployeController;
