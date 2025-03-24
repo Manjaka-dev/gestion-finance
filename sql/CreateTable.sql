@@ -20,6 +20,7 @@ CREATE TABLE Rubrique (
     id_cat INT NOT NULL,
     id_type INT NOT NULL,
     FOREIGN KEY (id_cat) REFERENCES Categorie(id_cat),
+    -- depense ou recette
     FOREIGN KEY (id_type) REFERENCES Type(id_type),
     FOREIGN KEY (id_per) REFERENCES Periode(id_per)
 );
@@ -80,3 +81,27 @@ CREATE TABLE Vue_departement (
     FOREIGN KEY (master_id) REFERENCES Departement(id_dept),
     FOREIGN KEY (slave_id) REFERENCES Departement(id_dept)
 );
+
+SELECT
+    SUM(Prevision.montant_prev)
+FROM
+    Prevision
+    JOIN Rubrique ON Prevision.id_per = Rubrique.id_per
+WHERE
+    Rubrique.id_cat = 1
+    AND Rubrique.id_per =
+SELECT
+    SUM(Prevision.montant_prev)
+FROM
+    Prevision
+    JOIN Rubrique ON Prevision.id_per = Rubrique.id_per
+WHERE
+    Rubrique.id_cat = 2
+    AND Rubrique.id_per =
+
+    SELECT 
+        id_per
+    FROM 
+        Periode
+    WHERE
+        
