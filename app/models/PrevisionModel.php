@@ -173,7 +173,7 @@ class PrevisionModel
         $retour = [];
         $recette = $this->getRecetteParPeriodeParDepartementParNombreMois($nombre_mois, $id_per_start, $id_dept);
         $depense = $this->getDepenseParPeriodeParDepartementParNombreMois($nombre_mois, $id_per_start, $id_dept);
-        $solde_fin_realise =[];
+        $solde_fin_realise =Flight::RealisationModel()->getSoldeFinAllPeriode($solde_debut, $nombre_mois, $id_per_start, $id_dept);
         for ($i=0; $i < count($recette); $i++) { 
             $retour[$i] = $solde_debut + $recette[$i] - $depense[$i];
             $solde_debut = $solde_fin_realise[$i];

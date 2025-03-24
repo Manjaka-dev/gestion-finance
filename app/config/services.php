@@ -1,6 +1,8 @@
 <?php
 
 use flight\Engine;
+use app\models\PrevisionModel;
+use app\models\RealisationModel;
 use flight\database\PdoWrapper;
 use flight\debug\database\PdoQueryCapture;
 use Tracy\Debugger;
@@ -26,3 +28,10 @@ use Tracy\Debugger;
 
 // Redis? This is where you'd set that up
 // $app->register('redis', Redis::class, [ $config['redis']['host'], $config['redis']['port'] ]);
+
+Flight::map('PrevisionModel', function () {
+    return new PrevisionModel (Flight::db());
+});
+Flight::map('RealisationModel', function () {
+    return new RealisationModel (Flight::db());
+});
