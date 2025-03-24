@@ -1,5 +1,5 @@
 <?php
-$base_url = Flight::get('flight.base_url');
+    $base_url = Flight::get('flight.base_url');
 ?>
 <!DOCTYPE html>
 <html lang="en">
