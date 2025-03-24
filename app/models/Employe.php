@@ -116,7 +116,7 @@
 
         public static function login($nom,$prenom,$mdp,$departement) {
             $db = Flight::db();
-            $stmt = $db->prepare("SELECT * FROM Employer WHERE nom_emp = ? AND prenom_emp = ? AND mdp = ? AND id_dept = ?");
+            $stmt = $db->prepare("SELECT * FROM Employer WHERE nom_emp = ? AND prenom_emp = ? AND mot_de_passe = ? AND id_dept = ?");
             $stmt->execute([$nom,$prenom,$mdp,$departement]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
