@@ -1,5 +1,8 @@
 <?php
-    use Flight;
+namespace app\models;
+use Flight;
+use Exception;
+
     class Poste {
         private $id_poste;
         private $nom_poste;
@@ -24,7 +27,7 @@
             try {
                 $stmt = $this->db->prepare("INSERT INTO Poste (nom_poste) VALUES (?)");
                 return $stmt->execute([$this->nom_poste]);
-            } catch (PDOException $e) {
+            } catch (Exception $e) {
                 echo "Erreur : " . $e->getMessage();
                 return false;
             }
@@ -49,7 +52,7 @@
             try {
                 $stmt = $this->db->prepare("UPDATE Poste SET nom_poste = ? WHERE id_poste = ?");
                 return $stmt->execute([$this->nom_poste, $this->id_poste]);
-            } catch (PDOException $e) {
+            } catch (Exception $e) {
                 echo "Erreur : " . $e->getMessage();
                 return false;
             }
@@ -60,7 +63,7 @@
             try {
                 $stmt = $this->db->prepare("DELETE FROM Poste WHERE id_poste = ?");
                 return $stmt->execute([$this->id_poste]);
-            } catch (PDOException $e) {
+            } catch (Exception $e) {
                 echo "Erreur : " . $e->getMessage();
                 return false;
             }

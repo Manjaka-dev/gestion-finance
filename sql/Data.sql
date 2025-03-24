@@ -40,10 +40,11 @@ INSERT INTO Realisation (id_rea, montant_rea, est_valider, id_dept, id_per) VALU
 (3, 21000.00, TRUE, 3, 3);
 
 -- Données pour la table Employer
-INSERT INTO Employer (id_emp, nom_emp, prenom_emp, date_naissance) VALUES
-(1, 'Dupont', 'Jean', '1980-05-15'),
-(2, 'Martin', 'Sophie', '1990-07-20'),
-(3, 'Durand', 'Pierre', '1985-11-30');
+INSERT INTO Employer (id_emp, nom_emp, prenom_emp, date_naissance, mot_de_passe) VALUES
+(1, 'Dupont', 'Jean', '1980-05-15', 'password123'),
+(2, 'Martin', 'Sophie', '1990-07-20', 'securePass!'),
+(3, 'Durand', 'Pierre', '1985-11-30', 'pierre@2024');
+
 
 -- Données pour la table Poste
 INSERT INTO Poste (id_post, nom_post) VALUES

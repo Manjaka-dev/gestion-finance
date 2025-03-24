@@ -1,10 +1,16 @@
 <?php
+namespace app\models;
+
+
+use Exception;
+use Flight;
+use PDO;
     class Employe {
         private $id_emp;
         private $nom_emp;
         private $prenom_emp;
         private $date_naissance;
-        private $db;
+        private $db;    
     
         public function __construct($id_emp,$nom_emp,$prenom_emp,$date_naissance) {
             $this->db = Flight::db();
@@ -32,7 +38,7 @@
             try {
                 $stmt = $this->db->prepare("INSERT INTO Employer (nom_emp, prenom_emp, date_naissance) VALUES (?, ?, ?)");
                 return $stmt->execute([$this->nom_emp, $this->prenom_emp, $this->date_naissance]);
-            } catch (PDOException $e) {
+            } catch (Exception $e) {
                 echo "Erreur : " . $e->getMessage();
                 return false;
             }
@@ -57,7 +63,7 @@
             try {
                 $stmt = $this->db->prepare("UPDATE Employer SET nom_emp = ?, prenom_emp = ?, date_naissance = ? WHERE id_emp = ?");
                 return $stmt->execute([$this->nom_emp, $this->prenom_emp, $this->date_naissance, $this->id_emp]);
-            } catch (PDOException $e) {
+            } catch (Exception $e) {
                 echo "Erreur : " . $e->getMessage();
                 return false;
             }
@@ -68,7 +74,7 @@
             try {
                 $stmt = $this->db->prepare("DELETE FROM Employer WHERE id_emp = ?");
                 return $stmt->execute([$this->id_emp]);
-            } catch (PDOException $e) {
+            } catch (Exception $e) {
                 echo "Erreur : " . $e->getMessage();
                 return false;
             }
@@ -116,14 +122,16 @@
 
         public static function login($nom,$prenom,$mdp,$departement) {
             $db = Flight::db();
-            $stmt = $db->prepare("SELECT * FROM Employer WHERE nom_emp = ? AND prenom_emp = ? AND mot_de_passe = ? AND id_dept = ?");
-            $stmt->execute([$nom,$prenom,$mdp,$departement]);
+            $stmt = $db->prepare("SELECT * FROM Employer WHERE nom_emp = ? AND prenom_emp = ? AND mot_de_passe = ?");
+            $stmt->execute([$nom,$prenom,$mdp]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
+
             if ($row) {
-                return true;
-                // $employe = new Employe($row['id_emp'], $row['nom_emp'], $row['prenom_emp'], $row['date_naissance']);
-                // return $employe;
+                $employe = new Employe($row['id_emp'], $row['nom_emp'], $row['prenom_emp'], $row['date_naissance']);
+                if ($employe->getDepartementByDate(date('Y-m-d'))->getId() == $departement) {
+                    return true;
+                }
             }
             return false;
         }

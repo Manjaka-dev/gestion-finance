@@ -1,4 +1,8 @@
 <?php
+namespace app\controllers;
+use app\models\Departement;
+use app\models\Employe;
+use Flight;
     class EmployeController
     {
         public function __construct()
@@ -20,7 +24,7 @@
             if (Employe::login($nom,$prenom,$mdp,$departement)) {
                 Flight::redirect('/employe');
             } else {
-                Flight::redirect('/loginEmp');
+                Flight::redirect('/employe/acceuil');
             }
         }
     }
