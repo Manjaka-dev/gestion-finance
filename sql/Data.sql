@@ -1,8 +1,7 @@
 -- Données pour la table Categorie
 INSERT INTO Categorie (id_cat, nom_cat) VALUES
-(1, 'Marketing'),
-(2, 'Finance'),
-(3, 'Ressources Humaines');
+(1, 'Recette'),
+(2, 'Depense'),
 
 -- Données pour la table Type
 INSERT INTO Type (id_type, nom_type) VALUES
@@ -18,7 +17,7 @@ INSERT INTO Periode (id_per, date_per) VALUES
 -- Données pour la table Rubrique
 INSERT INTO Rubrique (id_rub, id_per, nom_rub, id_cat, id_type) VALUES
 (1, 1, 'Publicité', 1, 2),
-(2, 1, 'Salaires', 3, 1),
+(2, 1, 'Salaires', 2, 1),
 (3, 2, 'Consulting', 2, 2);
 
 -- Données pour la table Departement
