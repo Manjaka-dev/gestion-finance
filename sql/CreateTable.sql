@@ -8,20 +8,20 @@ CREATE TABLE Type (
     nom_type VARCHAR(20) NOT NULL
 );
 
+CREATE TABLE Periode (
+    id_per INT PRIMARY KEY NOT NULL,
+    date_per DATE NOT NULL
+);
+
 CREATE TABLE Rubrique (
     id_rub INT PRIMARY KEY NOT NULL,
+    id_per INT NOT NULL,
     nom_rub VARCHAR(255) NOT NULL,
     id_cat INT NOT NULL,
     id_type INT NOT NULL,
     FOREIGN KEY (id_cat) REFERENCES Categorie(id_cat),
-    FOREIGN KEY (id_type) REFERENCES Type(id_type)
-);
-
-CREATE TABLE Periode (
-    id_per INT PRIMARY KEY NOT NULL,
-    date_per DATE NOT NULL,
-    id_rub INT,
-    FOREIGN KEY (id_rub) REFERENCES Rubrique(id_rub)
+    FOREIGN KEY (id_type) REFERENCES Type(id_type),
+    FOREIGN KEY (id_per) REFERENCES Periode(id_per)
 );
 
 CREATE TABLE Departement (
@@ -53,7 +53,8 @@ CREATE TABLE Employer (
     id_emp INT PRIMARY KEY NOT NULL,
     nom_emp VARCHAR(20) NOT NULL,
     prenom_emp VARCHAR(20) NOT NULL,
-    date_naissance DATE
+    date_naissance DATE,
+    mot_de_passe VARCHAR(255)
 );
 
 CREATE TABLE Poste (
