@@ -85,5 +85,19 @@
             }
             return false;
         }
+
+        public function getListRealisationNonValide() {
+            $db = Flight::db();
+            $stmt = $db->prepare("SELECT * FROM Realisation WHERE est_valider = 0");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        }
+
+        public function getListPrevisionNonValide() {
+            $db = Flight::db();
+            $stmt = $db->prepare("SELECT * FROM Prevision WHERE est_valider = 0");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        }
     }
     
