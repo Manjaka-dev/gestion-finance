@@ -1,0 +1,79 @@
+body {
+  background-color: #fffafe;
+  color: #000223;
+  font-family: "Roboto", sans-serif;
+}
+body nav {
+  background-color: #ffa000;
+  color: #fffafe;
+  padding: 10px;
+  display: flex;
+  align-content: end;
+}
+body nav ul {
+  display: flex;
+  flex-direction: row;
+  align-content: end;
+  gap: 20px;
+  list-style-type: none;
+}
+body nav ul button {
+  background-color: #000223;
+  color: #fffafe;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+body nav ul button:hover {
+  background-color: #7c521b;
+  color: #000223;
+}
+body main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body main section {
+  width: 50vw;
+}
+body main section form {
+  background-color: #7c521b;
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+  gap: 10px;
+}
+body main section form button {
+  background-color: #000223;
+  color: #fffafe;
+  border: none;
+  padding: 15px 30px 15px 30px;
+  font-size: larger;
+  border-radius: 60px;
+}
+body main section form button:hover {
+  background-color: #ffa000;
+  color: #000223;
+}
+body main section form select {
+  width: 30vw;
+  height: 7vh;
+  background-color: #fffafe;
+  font-size: larger;
+  border-radius: 3px;
+}
+body main section form input[type=date] {
+  width: 30vw;
+  height: 7vh;
+  background-color: #fffafe;
+  font-size: larger;
+  border-radius: 3px;
+}
+body main section form label {
+  color: #fffafe;
+  font-size: larger;
+}/*# sourceMappingURL=template.css.map */

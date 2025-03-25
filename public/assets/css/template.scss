@@ -1,0 +1,88 @@
+$blanc: #fffafe;
+$marron: #7c521b;
+$orange: #ffa000;
+$bleu: #000223;
+
+
+body{
+    background-color: $blanc;
+    color: $bleu;
+    font-family: 'Roboto', sans-serif;
+
+    nav{
+        background-color: $orange;
+        color: $blanc;
+        padding: 10px;
+        display: flex;
+        align-content: end;
+        ul{
+            display: flex;
+            flex-direction: row;
+            align-content: end;
+            gap: 20px;
+            list-style-type: none;
+            button{
+                background-color: $bleu;
+                color: $blanc;
+                border: none;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            button:hover{
+                background-color: $marron;
+                color: $bleu;
+            }
+        }
+
+    }
+    
+    main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        section{
+            width: 50vw;
+            form{
+                background-color: $marron;
+                margin: 10px 10px 10px 10px;
+                padding: 10px 10px 10px 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 50vw;
+                gap: 10px;
+                button{
+                    background-color: $bleu;
+                    color: $blanc;
+                    border: none;
+                    padding: 15px 30px 15px 30px;
+                    font-size: larger;
+                    border-radius: 60px;
+                }
+                button:hover{
+                    background-color: $orange;
+                    color: $bleu;
+                }
+                select{
+                    width: 30vw;
+                    height: 7vh;
+                    background-color: $blanc;
+                    font-size: larger;
+                    border-radius: 3px;
+                }
+                input[type="date"]{
+                    width: 30vw;
+                    height: 7vh;
+                    background-color: $blanc;
+                    font-size: larger;
+                    border-radius: 3px;
+                }
+                label{
+                    color: $blanc;
+                    font-size: larger;
+                }
+            }
+        }
+    }
+}
